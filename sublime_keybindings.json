@@ -1,0 +1,15 @@
+[
+	{ 
+       "keys": ["ctrl+j"], "command": "toggle_terminus_panel"
+  },
+	{ 
+        "keys": ["ctrl+shift+j"], "command": "terminus_open", "args": {
+            "cwd": "${file_path:${folder}}"
+      }
+    },
+    { "keys": ["ctrl+shift+c"], "command": "copy" },
+    {
+        "keys": ["ctrl+alt+d"],
+        "command": "emmet_go_to_tag_pair"
+    },
+]

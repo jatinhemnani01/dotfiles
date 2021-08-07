@@ -39,6 +39,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 " also :CocInstall coc-svelte
+" also :CocInstall coc-tsserver 
 
 call plug#end()
 
@@ -47,6 +48,9 @@ nmap <C-f> :NERDTreeToggle<CR>
 autocmd VimEnter * NERDTree
 map <C-h> <C-w>h
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" for coc autocomplete
+inoremap <silent><expr> <c-space> coc#refresh()
 
 set completeopt-=preview
 

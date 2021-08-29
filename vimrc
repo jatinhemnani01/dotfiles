@@ -31,6 +31,11 @@ let g:ycm_server_log_level = 'debug'
 
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'alvan/vim-closetag'
 Plug 'preservim/nerdtree'
@@ -42,13 +47,12 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 " also :CocInstall coc-tsserver 
 
 call plug#end()
-
-
 nmap <C-f> :NERDTreeToggle<CR>
 autocmd VimEnter * NERDTree
+let NERDTreeShowHidden=1
 map <C-h> <C-w>h
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
+:let @/ = ""
 " for coc autocomplete
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -60,3 +64,8 @@ let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 
 colorscheme tokyonight
+
+
+" telescope configs
+map <C-p> :Telescope git_files<CR>
+file_ignore_patterns = {'node_modules/.*'}

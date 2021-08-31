@@ -16,7 +16,7 @@ set belloff=all
 set undolevels=1000	
 set backspace=indent,eol,start	
 set clipboard=unnamedplus
-
+set modifiable
 " CURSOR SETTINGS"
 "
 let &t_SI.="\e[5 q" "SI = INSERT mode
@@ -36,11 +36,12 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'morhetz/gruvbox'
 Plug 'alvan/vim-closetag'
 Plug 'preservim/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 " also :CocInstall coc-svelte
@@ -63,9 +64,10 @@ set termguicolors
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 
-colorscheme tokyonight
+colorscheme gruvbox
 
 
 " telescope configs
+map <C-o> :Telescope find_files<CR>
 map <C-p> :Telescope git_files<CR>
-file_ignore_patterns = {'node_modules/.*'}
+"file_ignore_patterns = {'node_modules/.*'}

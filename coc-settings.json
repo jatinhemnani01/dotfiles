@@ -1,0 +1,27 @@
+{
+  "suggest.noselect": false,
+  "suggest.enablePreview": true,
+  "suggest.removeDuplicateItems": true,
+  "codeLens.enable": true,
+  "diagnostic.checkCurrentLine": true, 
+  "coc.preferences.jumpCommand": "drop",
+  "diagnostic.virtualText":true,
+  "diagnostic.warningSign": "⚠︎",
+    "diagnostic.errorSign": "✗",
+    "diagnostic.infoSign": "ℹ︎",
+    "diagnostic.hintSign": "ℹ︎",
+  "coc.preferences.rootPatterns": [
+    ".git",
+    ".vscode"
+  ],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "python",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "typescript",
+    "css",
+    "svelte",
+    "json"
+  ],
+}

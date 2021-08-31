@@ -6,6 +6,7 @@
   "diagnostic.checkCurrentLine": true, 
   "coc.preferences.jumpCommand": "drop",
   "diagnostic.virtualText":true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic.warningSign": "⚠︎",
     "diagnostic.errorSign": "✗",
     "diagnostic.infoSign": "ℹ︎",

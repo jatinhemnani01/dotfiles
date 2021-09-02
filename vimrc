@@ -1,4 +1,3 @@
-
 syntax on
 set nu
 set number	
@@ -46,6 +45,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 " also :CocInstall coc-svelte
 " also :CocInstall coc-tsserver 
+" also :CocInstall coc-snippets
 
 call plug#end()
 nmap <C-f> :NERDTreeToggle<CR>
@@ -57,6 +57,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " for coc autocomplete
 inoremap <silent><expr> <c-space> coc#refresh()
 
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
+nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
 set completeopt-=preview
 
 set termguicolors
@@ -70,4 +73,3 @@ colorscheme gruvbox
 " telescope configs
 map <C-o> :Telescope find_files<CR>
 map <C-p> :Telescope git_files<CR>
-"file_ignore_patterns = {'node_modules/.*'}

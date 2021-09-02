@@ -23,6 +23,10 @@ let &t_SR.="\e[4 q" "SR = REPLACE mode
 let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)]"]"]"
 
 
+"ctrlp ignore
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+
 " CURSOR SETTINGS"
 
 let g:ycm_server_keep_logfiles = 1
@@ -30,8 +34,8 @@ let g:ycm_server_log_level = 'debug'
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'kien/ctrlp.vim'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -59,7 +63,11 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
-nmap <silent> gd :call CocAction('jumpDefinition', 'vsplit')<CR>
+"GO TO
+nmap <silent> gd :call CocAction('jumpDefinition')<CR>
+" prettier command for coc
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 set completeopt-=preview
 
 set termguicolors
@@ -70,6 +78,3 @@ let g:tokyonight_enable_italic = 1
 colorscheme gruvbox
 
 
-" telescope configs
-map <C-o> :Telescope find_files<CR>
-map <C-p> :Telescope git_files<CR>

@@ -4,6 +4,7 @@ set number
 set textwidth=100
 set showmatch	
 set hlsearch
+"set nohlsearch
 set smartcase	
 set ignorecase	
 set incsearch	
@@ -34,6 +35,7 @@ let g:ycm_server_log_level = 'debug'
 
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'vim-airline/vim-airline'
 Plug 'romgrk/barbar.nvim'
 Plug 'kien/ctrlp.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -62,6 +64,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " for coc autocomplete
 inoremap <silent><expr> <c-space> coc#refresh()
 
+"Ctrl + L removes search highlight
+nnoremap <C-L> :nohls<cr><C-L>
+
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
 "GO TO
@@ -73,8 +78,26 @@ set completeopt-=preview
 
 set termguicolors
 
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
+
+
+" sync open file with NERDTree
+" " Check if NERDTree is open or active
+function! IsNERDTreeOpen()        
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncTree()
+"END
 
 colorscheme gruvbox
 

@@ -16,6 +16,7 @@ set belloff=all
 set undolevels=1000	
 set backspace=indent,eol,start	
 set clipboard=unnamedplus
+set encoding=UTF-8
 set modifiable
 " CURSOR SETTINGS"
 "
@@ -35,6 +36,8 @@ let g:ycm_server_log_level = 'debug'
 
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'romgrk/barbar.nvim'
 Plug 'kien/ctrlp.vim'
